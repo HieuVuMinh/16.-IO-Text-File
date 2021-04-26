@@ -12,14 +12,16 @@ public class Main {
             File copyFilePath = new File("C:\\Users\\hieu\\Java project\\16. IO Text File\\[Bai tap] Copy file text\\CopyText.txt");
             FileWriter fileWriter = new FileWriter(copyFilePath);
             FileReader fileReader = new FileReader(sourceFilePath);
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
 
-            int line;
-            while ((line = fileReader.read()) != -1) {
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
                 fileWriter.write(line);
+                System.out.print(line);
             }
             fileReader.close();
             fileWriter.close();
-            System.out.println("Copy đã hoàn tất");
+            System.out.println("\nCopy đã hoàn tất");
 
         } catch (Exception e) {
             e.printStackTrace();
